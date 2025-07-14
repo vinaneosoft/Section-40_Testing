@@ -149,7 +149,7 @@ exports.deletePost = async (req, res, next) => {
     }
     // Check logged in user
     clearImage(post.imageUrl);
-    await Post.findByIdAndRemove(postId);
+    await Post.findByIdAndDelete(id);
 
     const user = await User.findById(req.userId);
     user.posts.pull(postId);
